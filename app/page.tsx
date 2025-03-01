@@ -1,6 +1,6 @@
 import Image from "next/image";
 import placeholder from "@/assets/placeholder.svg";
-
+import Link from 'next/link';
 
 export default function Page() {
   return (
@@ -8,7 +8,7 @@ export default function Page() {
       <div className="container px-4 md:px-6">
         <div className="flex lg:flex-row flex-col gap-4 items-center">
           <div className="space-y-4">
-            <h1 classNaame="text-3x1 font-bold tracking-tighter sm:text-4x1 md:text-5x1 xl:text-6x1">
+            <h1 className="text-3x1 font-bold tracking-tighter sm:text-4x1 md:text-5x1 xl:text-6x1">
               Unlock the Power of the Web
             </h1>
             <p className="max-w-[600px] text-muted-foreground md:text-xl">
@@ -20,13 +20,13 @@ export default function Page() {
                   <div>Sign In</div>
                 </button>
               </form>
-              <a
+              <Link
               href="/about"
               className="inline-flex h-10 items-center justify-center rounded-md border border-input bg-background px-8 text-sm font-medium shadow-sm transition-colors hover:bg-accent hover:text-accent-foreground focus-visible:outline-none focus-visible:ring-1 focus-visible:ring-ring disabled:pointer-events-none disabled:opacity-50"
              prefetch={false}
              >
               LEARN MORE!
-             </a>
+             </Link>
             </div>
            </div>
            <Image
