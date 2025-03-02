@@ -1,7 +1,16 @@
+import { Topic } from "@/components/Topic";
+import { fetchTopics } from "@/lib/data";
+
 export default function Page() {
+    const topics = await fetchTopics();
+
     return (
-        <div className="flex flex-col justify-top items-center h-screen">
-            Top Picks Page
-        </div>
-    )
+        <main className="flex flex-col items-stretch justify-stretch">
+            <h1 className="mb-4 text-xl md:text-2x1">Top Pics</h1>
+            {topics.map((topic) => (
+                <Topic key={topic.id} id={topic.id} text={topic.title} />
+            ))}
+            </main>
+    );
 }
+        
