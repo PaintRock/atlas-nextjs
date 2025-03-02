@@ -31,6 +31,7 @@ function Logo() {
         src={logo}
         alt="Acme Logo"
         className="h-14 md:h-full object-contain"
+        priority 
       />
     </Link>
   );
