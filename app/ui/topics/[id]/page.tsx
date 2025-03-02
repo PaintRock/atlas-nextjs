@@ -8,7 +8,7 @@ export default async function Page({
  }: { 
         params: Promise<{ id: string }>;
      }) {
-    const { id } = params;
+    const { id } = await params;
     const topic = await fetchTopic(id);
     const questions = await fetchQuestions(id);
 
@@ -19,11 +19,10 @@ export default async function Page({
     return (
         <div>
             <h1 className="text-3x1 font-black flex items-center">
-                <HastagIcon className="h-6 w-6 mr-2" /> {topic.title}
+                <HashtagIcon className="h-6 w-6 mr-2" /> {topic.title}
                 </h1>
                 <AskQuestion topic={topic.id} />
-            {questions.map((question)
-        =>(
+            {questions.map((question) => (
             <Question
             key={question.id}
             id={question.id}
