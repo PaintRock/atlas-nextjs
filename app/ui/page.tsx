@@ -1,7 +1,7 @@
 import { Topic } from "@/components/Topic";
 import { fetchTopics } from "@/lib/data";
 
-export default function Page() {
+export default async function Page() {
     const topics = await fetchTopics();
 
     return (
@@ -10,7 +10,7 @@ export default function Page() {
             {topics.map((topic) => (
                 <Topic key={topic.id} id={topic.id} text={topic.title} />
             ))}
-            </main>
+        </main>
     );
 }
         
