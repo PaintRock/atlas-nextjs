@@ -4,6 +4,7 @@ import bcrypt from "bcryptjs";
 import { fetchUser } from "@/lib/data";
 
 export const { handlers, signIn, signOut, auth } = NextAuth({
+    secret: process.env.AUTH_SECRET,
     theme: {
         brandColor: "#1ED2AF",
         logo: "/logo.png",
@@ -20,14 +21,14 @@ export const { handlers, signIn, signOut, auth } = NextAuth({
                 type: "password",
             },
            },
-           authorize: async (credentials: {email: string; password: string }) => {
+           authorize: async (credentials: { email: string; password: string }) => {
             const { email, password } = credentials;
             const user = await fetchUser(email);
-            if (!user) return null;
+            if (!user) return null; //@ts-ignore
             const passwordsMatch = await bcrypt.compare(password, user.password);
             if (passwordsMatch) return user;
             return null;
-           }
+          },
         }),
     ],
     callbacks: {
